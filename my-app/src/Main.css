@@ -1,0 +1,14 @@
+.Main {
+    background-image: url('body-pic.png');
+    background-repeat: no-repeat;
+    padding-top: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+    height: 122vh;
+    width: 90vh;
+    background-color: black;
+    color: #fff;
+} 

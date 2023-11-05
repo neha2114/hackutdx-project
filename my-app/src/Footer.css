@@ -1,11 +1,10 @@
 .Footer {
-    background-image: url('footer-pic.png');
     background-repeat: no-repeat;
     text-align: center;
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
     height: 14vh;
-    width: 90vh;
+    width: 100%;
     background-color: black;
     color: #fff;
 } 

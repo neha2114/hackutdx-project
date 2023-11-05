@@ -1,5 +1,14 @@
 import React, {useState} from "react";
 import { TextField, Button } from "@mui/material";
+import './Form.css';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+   palette: {
+     mode: 'dark',
+   },
+ });
+ 
 
 const Form = () => {
     const [income, setIncome] = useState()
@@ -68,6 +77,7 @@ const Form = () => {
     }
     return ( 
         <React.Fragment>
+      <ThemeProvider theme={darkTheme}>
         <form autoComplete="off" onSubmit={handleSubmit}>
             <h2>Home Purchase Eligibility Calculator</h2>
                 <TextField 
@@ -171,6 +181,7 @@ const Form = () => {
                  />
                  <Button variant="outlined" color="secondary" type="submit">Submit</Button>             
         </form>
+        </ThemeProvider>
         <p>{rec}</p>
         <p>{creditRec}</p>
         <p>{LTVRec}</p>

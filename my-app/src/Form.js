@@ -25,14 +25,13 @@ const Form = () => {
     const [LTVRec, setLTVRec] = useState()
     const [DTIRec, setDTIRec] = useState()
     const [FEDTIRec, setFEDTIRec] = useState()
+    const [isUpdated, setIsUpdated] = useState(false)
 
-    const Update = () => {
+    const UpdateDTISum = () => {
       setDTISum(Number(car) + Number(creditCard) + Number(mortgage))
     }
- 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        Update()
+
+    const calculate = () => {
         setLTV(loan / appraised)
         setDTI(DTISum / income)
         setFEDTI(mortgage / income)
@@ -40,19 +39,20 @@ const Form = () => {
         console.log(LTV)
         console.log(DTI)
         console.log(FEDTI)
+    }
 
-        if (creditScore >= 640 && (LTV >= 0.8 && LTV <= 0.95) && DTI <= 0.43 && FEDTI <= 0.28) {
+    const updateRecs = () => {
+      if (creditScore >= 640 && (LTV >= 0.8 && LTV <= 0.95) && DTI <= 0.43 && FEDTI <= 0.28) {
          
          setCreditRec("Your Credit Score follows the recommendation of above 640")
-         setDTIRec("Your Debt to Income ratio follows the recommendation of below 43%")
-         setFEDTIRec("Your Front End Debt To Income ratio follows the recommendation of below 28%")
-
          if (LTV < 0.8) {
             setLTVRec("Your Loan To Value ratio follows the recommendation of below 80%")
          }
          else {
             setLTVRec("Your Loan To Value ratio is below the recommendation of below 80% so you may need to purchase Private Mortgage Insurance to qualify for buying a home")
          }
+         setDTIRec("Your Debt to Income ratio follows the recommendation of below 43%")
+         setFEDTIRec("Your Front End Debt To Income ratio follows the recommendation of below 28%")
          setRec("Congratulations, you are approved to purchase a home! Please review our suggestions and speak with an advisor for additional information")
         }
         else {
@@ -70,6 +70,14 @@ const Form = () => {
          }
          setRec("One or more of your responses do not follow financial recommendations to purchase a home. Please review our suggestions and speak with an advisor to create a personalized plan")
         }
+    }    
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        UpdateDTISum()
+        calculate()
+        updateRecs()
+        setIsUpdated(true)
     }
     return ( 
         <React.Fragment>
@@ -176,46 +184,67 @@ const Form = () => {
                  />
                  <Button variant="outlined" color="secondary" type="submit">Submit</Button>             
         </form>
-
-        <Card sx={{ minWidth: 275 }}>
+        
+        {isUpdated ? <Card sx={{ minWidth: 275 }}>
          <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {creditRec}
             </Typography>
          </CardContent>
-        </Card>
-        
-        <Card sx={{ minWidth: 275 }}>
+        </Card> : <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            </Typography>
+         </CardContent>
+        </Card>}
+        {isUpdated ? <Card sx={{ minWidth: 275 }}>
          <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {LTVRec}
             </Typography>
          </CardContent>
-        </Card>
-
-        <Card sx={{ minWidth: 275 }}>
+        </Card> : <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            </Typography>
+         </CardContent>
+        </Card>}
+        {isUpdated ? <Card sx={{ minWidth: 275 }}>
          <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {DTIRec}
             </Typography>
          </CardContent>
-        </Card>
-
-        <Card sx={{ minWidth: 275 }}>
+        </Card> : <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            </Typography>
+         </CardContent>
+        </Card>}
+        {isUpdated ? <Card sx={{ minWidth: 275 }}>
          <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {FEDTIRec}
             </Typography>
          </CardContent>
-        </Card>
-
-        <Card sx={{ minWidth: 275 }}>
+        </Card> : <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            </Typography>
+         </CardContent>
+        </Card>}
+        {isUpdated ? <Card sx={{ minWidth: 275 }}>
          <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {rec}
             </Typography>
          </CardContent>
-        </Card>
+        </Card> : <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            </Typography>
+         </CardContent>
+        </Card>}
         </React.Fragment>
      );
 }

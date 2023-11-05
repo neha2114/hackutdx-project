@@ -5,6 +5,15 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import './Form.css';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+   palette: {
+     mode: 'dark',
+   },
+ });
+ 
 
 const Form = () => {
     const [income, setIncome] = useState()
@@ -81,6 +90,7 @@ const Form = () => {
     }
     return ( 
         <React.Fragment>
+      <ThemeProvider theme={darkTheme}>
         <form autoComplete="off" onSubmit={handleSubmit}>
             <h2>Home Purchase Eligibility Calculator</h2>
                 <TextField 
@@ -245,6 +255,14 @@ const Form = () => {
             </Typography>
          </CardContent>
         </Card>}
+
+        </ThemeProvider>
+        <p>{rec}</p>
+        <p>{creditRec}</p>
+        <p>{LTVRec}</p>
+        <p>{DTIRec}</p>
+        <p>{FEDTIRec}</p>
+
         </React.Fragment>
      );
 }

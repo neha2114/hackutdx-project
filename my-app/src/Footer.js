@@ -4,7 +4,7 @@ function Footer() {
 
   return (
       <div className="Footer">
-          <p>Created with love for future home buyers</p>
+          <p>CREATED WITH LOVE FOR FUTURE HOME BUYERS</p>
       </div>
   );
 }

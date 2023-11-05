@@ -262,7 +262,16 @@ const Form = () => {
         <p>{LTVRec}</p>
         <p>{DTIRec}</p>
         <p>{FEDTIRec}</p>
-
+        <p>RESOURCES</p>
+        <p>Improve Your Credit Score:</p>
+        <li>https://www.nerdwallet.com/article/finance/raise-credit-score-fast</li>
+        <li>https://www.capitalone.com/learn-grow/money-management/improve-credit-score/</li>
+        <li>https://www.federalreserve.gov/pubs/creditscore/creditscoretips_2.pdf</li>
+        <p>Decrease Loan to Value Ratio:</p>
+        <li>https://www.rocketmortgage.com/learn/loan-to-value-ratio#:~:text=Make%20A%20Larger%20Down%20Payment&text=In%20essence%2C%20increasing%20the%20amount,which%20automatically%20lowers%20your%20LTV.</li>
+        <li>https://www.capitalone.com/learn-grow/money-management/loan-to-value-ratio/</li>
+        <p>Decrease Debt to Income Ratio:</p>
+        <li>https://www.experian.com/blogs/ask-experian/how-to-reduce-dti-before-applying-for-loan/</li>
         </React.Fragment>
      );
 }

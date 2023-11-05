@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import SwipeableTextMobileStepper from './CarouselSwipe';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         >
           Learning React is really lame!
         </a>
+        <SwipeableTextMobileStepper />
       </header>
     </div>
   );

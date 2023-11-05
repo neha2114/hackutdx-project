@@ -10,5 +10,17 @@
     display: flex;
     background-color: white;
     color: black;
-    
-} 
+    .Carousel {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+}
+
+.Carousel {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

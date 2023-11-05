@@ -16,6 +16,10 @@ const Form = () => {
     const [DTISum, setDTISum] = useState(0)
     const [FEDTI, setFEDTI] = useState()
     const [rec, setRec] = useState()
+    const [creditRec, setCreditRec] = useState()
+    const [LTVRec, setLTVRec] = useState()
+    const [DTIRec, setDTIRec] = useState()
+    const [FEDTIRec, setFEDTIRec] = useState()
 
     const Update = () => {
       setDTISum(Number(car) + Number(creditCard) + Number(mortgage))
@@ -24,7 +28,7 @@ const Form = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         Update()
-        setLTV(loan/appraised)
+        setLTV(loan / appraised)
         setDTI(DTISum / income)
         setFEDTI(mortgage / income)
 
@@ -32,24 +36,33 @@ const Form = () => {
         console.log(DTI)
         console.log(FEDTI)
 
-        if (creditScore >= 640 && LTV < 0.8 && DTI <= 0.43 && FEDTI <= 0.28) {
-         setRec("Congratulations, you are approved to purchase a home")
+        if (creditScore >= 640 && (LTV >= 0.8 && LTV <= 0.95) && DTI <= 0.43 && FEDTI <= 0.28) {
+         setRec("Congratulations, you are approved to purchase a home! Please review our suggestions and speak with an advisor for additional information")
+         setCreditRec("Your Credit Score follows the recommendation of above 640")
+         setDTIRec("Your Debt to Income ratio follows the recommendation of below 43%")
+         setFEDTIRec("Your Front End Debt To Income ratio follows the recommendation of below 28%")
+
+         if (LTV < 0.8) {
+            setLTVRec("Your Loan To Value ratio follows the recommendation of below 80%")
+         }
+         else {
+            setLTVRec("Your Loan To Value ratio is below the recommendation of below 80% so you may need to purchase Private Mortgage Insurance to qualify for buying a home")
+         }
         }
         else {
+         setRec("One or more of your responses do not follow financial recommendations to purchase a home. Please review our suggestions and speak with an advisor to create a personalized plan")
+         
          if (creditScore < 640) {
-            setRec("Your Credit Score is too low (recommended below 640)")
+            setCreditRec("Your Credit Score is too low (recommended below 640)")
          }
-         else if (LTV > 0.95) {
-            setRec("Your Loan to Value ratio is too high (recommended below 95%)")
+         if (LTV > 0.95) {
+            setLTVRec("Your Loan to Value ratio is too high (recommended below 95%)")
          }
-         else if (DTI > 0.43) {
-            setRec("Your Debt to Income ratio is too high (recommended below 43%)")
+         if (DTI > 0.43) {
+            setDTIRec("Your Debt to Income ratio is too high (recommended below 43%)")
          }
-         else if (FEDTI > 0.28) {
-            setRec("Your Front End Debt To Income ratio is too high (recommended below 28%)")
-         }
-         else if (LTV >= 0.8 && LTV <= 0.95) {
-            setRec("You are approved to purchase a home but your Loan to Value ratio is high (above 80%), so you may need to purchase Private Mortgage Insurance to qualify for buying a home")
+         if (FEDTI > 0.28) {
+            setFEDTIRec("Your Front End Debt To Income ratio is too high (recommended below 28%)")
          }
         }
     }
@@ -159,6 +172,10 @@ const Form = () => {
                  <Button variant="outlined" color="secondary" type="submit">Submit</Button>             
         </form>
         <p>{rec}</p>
+        <p>{creditRec}</p>
+        <p>{LTVRec}</p>
+        <p>{DTIRec}</p>
+        <p>{FEDTIRec}</p>
         </React.Fragment>
      );
 }

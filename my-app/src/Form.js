@@ -264,14 +264,14 @@ const Form = () => {
         <p>{FEDTIRec}</p>
         <p>RESOURCES</p>
         <p>Improve Your Credit Score:</p>
-        <li>https://www.nerdwallet.com/article/finance/raise-credit-score-fast</li>
-        <li>https://www.capitalone.com/learn-grow/money-management/improve-credit-score/</li>
-        <li>https://www.federalreserve.gov/pubs/creditscore/creditscoretips_2.pdf</li>
+        <li><a href="https://www.nerdwallet.com/article/finance/raise-credit-score-fast">NerdWallet: Raise Your Credit Score</a></li>
+        <li><a href="https://www.capitalone.com/learn-grow/money-management/improve-credit-score/">Capital One: Improve Your Credit Score</a></li>
+        <li><a href="https://www.federalreserve.gov/pubs/creditscore/creditscoretips_2.pdf">Federal Reserve: Credit Score Tips</a></li>
         <p>Decrease Loan to Value Ratio:</p>
-        <li>https://www.rocketmortgage.com/learn/loan-to-value-ratio#:~:text=Make%20A%20Larger%20Down%20Payment&text=In%20essence%2C%20increasing%20the%20amount,which%20automatically%20lowers%20your%20LTV.</li>
-        <li>https://www.capitalone.com/learn-grow/money-management/loan-to-value-ratio/</li>
+        <li><a href="https://www.rocketmortgage.com/learn/loan-to-value-ratio#:~:text=Make%20A%20Larger%20Down%20Payment&text=In%20essence%2C%20increasing%20the%20amount,which%20automatically%20lowers%20your%20LTV.">Rocket Mortgage: Loan to Value Ratio Tips</a></li>
+        <li><a href="https://www.capitalone.com/learn-grow/money-management/loan-to-value-ratio/">Capital One: Loan to Value Ratio Explained</a></li>
         <p>Decrease Debt to Income Ratio:</p>
-        <li>https://www.experian.com/blogs/ask-experian/how-to-reduce-dti-before-applying-for-loan/</li>
+        <li><a href="https://www.experian.com/blogs/ask-experian/how-to-reduce-dti-before-applying-for-loan/">Experian: Decrease Debt to Income Ratio</a></li>
         </React.Fragment>
      );
 }

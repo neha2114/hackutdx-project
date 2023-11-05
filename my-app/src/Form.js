@@ -1,5 +1,10 @@
 import React, {useState} from "react";
 import { TextField, Button } from "@mui/material";
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 const Form = () => {
     const [income, setIncome] = useState()
@@ -37,7 +42,7 @@ const Form = () => {
         console.log(FEDTI)
 
         if (creditScore >= 640 && (LTV >= 0.8 && LTV <= 0.95) && DTI <= 0.43 && FEDTI <= 0.28) {
-         setRec("Congratulations, you are approved to purchase a home! Please review our suggestions and speak with an advisor for additional information")
+         
          setCreditRec("Your Credit Score follows the recommendation of above 640")
          setDTIRec("Your Debt to Income ratio follows the recommendation of below 43%")
          setFEDTIRec("Your Front End Debt To Income ratio follows the recommendation of below 28%")
@@ -48,10 +53,9 @@ const Form = () => {
          else {
             setLTVRec("Your Loan To Value ratio is below the recommendation of below 80% so you may need to purchase Private Mortgage Insurance to qualify for buying a home")
          }
+         setRec("Congratulations, you are approved to purchase a home! Please review our suggestions and speak with an advisor for additional information")
         }
         else {
-         setRec("One or more of your responses do not follow financial recommendations to purchase a home. Please review our suggestions and speak with an advisor to create a personalized plan")
-         
          if (creditScore < 640) {
             setCreditRec("Your Credit Score is too low (recommended below 640)")
          }
@@ -64,6 +68,7 @@ const Form = () => {
          if (FEDTI > 0.28) {
             setFEDTIRec("Your Front End Debt To Income ratio is too high (recommended below 28%)")
          }
+         setRec("One or more of your responses do not follow financial recommendations to purchase a home. Please review our suggestions and speak with an advisor to create a personalized plan")
         }
     }
     return ( 
@@ -171,11 +176,46 @@ const Form = () => {
                  />
                  <Button variant="outlined" color="secondary" type="submit">Submit</Button>             
         </form>
-        <p>{rec}</p>
-        <p>{creditRec}</p>
-        <p>{LTVRec}</p>
-        <p>{DTIRec}</p>
-        <p>{FEDTIRec}</p>
+
+        <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            {creditRec}
+            </Typography>
+         </CardContent>
+        </Card>
+        
+        <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            {LTVRec}
+            </Typography>
+         </CardContent>
+        </Card>
+
+        <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            {DTIRec}
+            </Typography>
+         </CardContent>
+        </Card>
+
+        <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            {FEDTIRec}
+            </Typography>
+         </CardContent>
+        </Card>
+
+        <Card sx={{ minWidth: 275 }}>
+         <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            {rec}
+            </Typography>
+         </CardContent>
+        </Card>
         </React.Fragment>
      );
 }
